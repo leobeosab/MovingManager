@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * Created by Ryan on 3/13/2017.
  */
 
+//Simple list adapter for disaplaying all the information we need
 public class MovingItemAdapter extends ArrayAdapter<MovingItemModel> {
 
     public MovingItemAdapter(Context context, ArrayList<MovingItemModel> items) {
@@ -35,7 +36,7 @@ public class MovingItemAdapter extends ArrayAdapter<MovingItemModel> {
         address.setText(item.address);
 
         ImageView imageView =  (ImageView) convertView.findViewById(R.id.preview);
-        new BackgroundDownloadImage(imageView).execute(item.imageUrl);
+        new BackgroundDownloadImage(imageView).execute(item.imageUrl); //Download image asynchronously
 
         return convertView;
     }

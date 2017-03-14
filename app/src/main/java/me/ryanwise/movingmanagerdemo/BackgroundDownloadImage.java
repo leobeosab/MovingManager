@@ -22,10 +22,13 @@ public class BackgroundDownloadImage extends AsyncTask<String, Void, Bitmap> {
     }
 
     protected Bitmap doInBackground(String... urls) {
+        //Get the url for the image
         String imageUrl = urls[0];
         Bitmap downloadedImage = null;
         try {
+            //Get input stream from url string
             InputStream data = new URL(imageUrl).openStream();
+            //Decode image
             downloadedImage = BitmapFactory.decodeStream(data);
         } catch(Exception e) {
             System.err.println("Error while downloading image from url");
@@ -36,6 +39,7 @@ public class BackgroundDownloadImage extends AsyncTask<String, Void, Bitmap> {
     }
 
     protected void onPostExecute(Bitmap result) {
+        //Set resulting image to the view
         image.setImageBitmap(result);
     }
 

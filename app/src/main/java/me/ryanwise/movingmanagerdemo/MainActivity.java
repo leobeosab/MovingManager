@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    String[] moving_data = { "South 123 drive, Murdoc Family", "North 456, Wayne Family",
-            "East 789 road, Stark Family"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
