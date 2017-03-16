@@ -33,7 +33,7 @@ public class MovingItemAdapter extends ArrayAdapter<MovingItemModel> {
         TextView address = (TextView) convertView.findViewById(R.id.address);
 
         familyName.setText(item.familyName);
-        address.setText(item.address);
+        address.setText(item.destinationAddress);
 
         ImageView imageView =  (ImageView) convertView.findViewById(R.id.preview);
         new BackgroundDownloadImage(imageView).execute(item.imageUrl); //Download image asynchronously

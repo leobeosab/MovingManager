@@ -10,11 +10,14 @@ import org.json.JSONObject;
 //Used to hold data for each list item
 public class MovingItemModel {
 
-    public String address, familyName, imageUrl;
+    public int id;
+    public String oldAddress, destinationAddress, familyName, imageUrl;
 
     //Used for manual testing
-    public MovingItemModel(String address, String familyName, String imageUrl) {
-        this.address = address;
+    public MovingItemModel(int id, String oldAddress, String destinationAddress, String familyName, String imageUrl) {
+        this.id = id;
+        this.oldAddress = oldAddress;
+        this.destinationAddress = destinationAddress;
         this.familyName = familyName;
         this.imageUrl = imageUrl;
     }
@@ -22,9 +25,11 @@ public class MovingItemModel {
     //For when we grab from an API endpoint
     public MovingItemModel(JSONObject data) {
         try {
-            this.address = data.getString("address");
-            this.familyName = data.getString("familyName");
-            this.imageUrl = data.getString("imageUrl");
+            this.id = Integer.parseInt(data.getString("id"));
+            this.oldAddress = data.getString("old_address");
+            this.destinationAddress = data.getString("destination_address");
+            this.familyName = data.getString("family_name");
+            this.imageUrl = data.getString("preview_image_url");
         } catch (JSONException e) {
             System.err.print("Error while decoding JSON variables");
             e.printStackTrace();
